@@ -1,0 +1,29 @@
+{% load static %}
+
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    </head>
+
+    <body>
+           <h1>this is home page</h1>
+        <h1 class="first">Welcome to home page</h1>
+
+        <form action="{% url 'data' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            Name:<input type="text" name="x" value="">
+            Email:<input type="email" name="y" value="">
+            contact:<input type="number" name="z" value="">
+            Image:<input type="file" name="f" value="">
+            Document:<input type="file" name="d" value="">
+            <input type="submit" value="Submit">
+
+
+        </form>
+    </body>
+</html>
+
+{% comment %} {% block css %}
+<link rel="stylesheet" href="{% static 'css/about.css.' %}">
+{% endblock  %}
+<h1 class="first">Welcome to home page</h1> {% endcomment %}
