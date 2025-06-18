@@ -29,6 +29,9 @@ def home(req):
             #  e=req.FILES.get['Stu_image']
             #  f=req.FILES.get['Stu_document']
             #  print(a,b,c,d,e,f)
+        else:
+            #    form=Studentform()
+            return render(req,'home.html',{'fm':form})
 
     else:
         form=Studentform()

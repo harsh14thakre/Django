@@ -7,5 +7,5 @@ class Student(models.Model):
     city=models.CharField(max_length=50)
     email=models.EmailField()
     contact=models.IntegerField()
-    image=models.ImageField()
-    document=models.ImageField()
+    image=models.ImageField(upload_to='image/')
+    document=models.ImageField(upload_to='doc/')
