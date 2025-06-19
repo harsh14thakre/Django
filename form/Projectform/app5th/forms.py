@@ -63,25 +63,59 @@ class Studentform(forms.ModelForm):
             contact = cleaned_data.get('contact') 
             image = cleaned_data.get('image') 
             document = cleaned_data.get('document') 
-           
-            if name and not name.replace(" ", "").isalpha():
-               self.add_error('name',"Name should only contain letter and space")
+
+            # print(type(name))
+            # print(type(city))
+            # print(type(email))
+            # print(type(contact))
+            # print(type(image))
+            # print(type(document))
+
+            if name==None:
+               self.add_error('name',"Name should only contain letters")
+            elif len(name)<4:
+               self.add_error('name',"length of name is grater then 4 charactors")
+
+            if city==None:
+               self.add_error('name',"Name should only contain letters")
+            elif len(city)<4:
+               self.add_error('name',"length of name of city is grater then 4 charactors")
+
+            if email==None:
+               self.add_error('name',"This field is required")
+            elif email and not email.lower().endswith(('@gmail.com','@yahoo.com')):
+               self.add_error('name',"Name should only contain letter and space") 
+            
+
+            # if contact and not (str(contact).isdigit() and len(str(contact))==10):
+            #    self.add_error('contact',"Contact must be a 10-digit number.")
+
+            # if image and image.size > 2 * 1024 * 1024:
+            #    self.add_error('image',"Image size should not exceed 5MB")   
+
+            # if document and not document.name.lower().endswith(('.docx', '.pdf','.doc')):
+            #    self.add_error('document',"Document must be either .docx or .pdf or .doc")
+
+            
+
+            # if name and not name.replace(" ", "").isalpha():
+            #    self.add_error('name',"Name should only contain letter and space")
     
-            if city and not city.replace(" ", "").isalpha():
-               self.add_error('city',"City does not content any specific word use character")
+            # if city and not city.replace(" ", "").isalpha():
+            #    self.add_error('city',"City does not content any specific word use character")
     
-            if email and not email.lower().endswith(('@gmail.com','@yahoo.com')):
-               self.add_error('name',"Name should only contain letter and space")
+            # if email and not email.lower().endswith(('@gmail.com','@yahoo.com')):
+            #    self.add_error('name',"Name should only contain letter and space")
     
-            # if contact and not re.match(r'^\d{10}$',contact):
-            if not (str(contact).isdigit() and len(str(contact))==10):
-               self.add_error('contact',"Contact must be a 10-digit number.")
+            # # if contact and not re.match(r'^\d{10}$',contact):
+            # if contact and not (str(contact).isdigit() and len(str(contact))==10):
+            #    self.add_error('contact',"Contact must be a 10-digit number.")
                                   
-            if image and image.size > 2 * 1024 * 1024:
-               self.add_error('image',"Image size should not exceed 5MB")
+            # if image and image.size > 2 * 1024 * 1024:
+            #    self.add_error('image',"Image size should not exceed 5MB")
     
-            if document and not document.name.lower().endswith(('.docx', '.pdf','.doc')):
-               self.add_error("Document must be either .docx or .pdf or .doc")
+            # if document and not document.name.lower().endswith(('.docx', '.pdf','.doc')):
+            #    self.add_error('document',"Document must be either .docx or .pdf or .doc")
                 
     
     
