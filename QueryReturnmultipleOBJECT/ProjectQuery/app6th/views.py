@@ -1,0 +1,15 @@
+from django.shortcuts import render
+from .models import Student as stu
+
+# Create your views here. 
+def home(req):
+    all_data=stu.objects.filter()
+    # print(all_data)
+    print(type(all_data))
+    for i in all_data:
+        print(i.name)
+        print(i.email)
+        print(i.contact)
+        print(i.city)
+        print(all_data.values_list())
+        
