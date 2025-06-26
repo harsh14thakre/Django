@@ -12,7 +12,11 @@ def home(req):
         print(i.email)
         print(i.contact)
         print(i.city)
-        print(all_data.values_list())
+        # print(all_data.values_list())
+
+        return render(req,'home.html',{'data':all_data})
         
- 
-        
+
+
+
+
